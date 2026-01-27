@@ -32,6 +32,7 @@ out/
 /dist/
 /nbdist/
 /.nb-gradle/
-
+# local config (do not commit)
+src/main/resources/application-prod.yml
 ### VS Code ###
 .vscode/

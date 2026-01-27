@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active: local # 기본값은 로컬로 설정
+  main:
+    allow-bean-definition-overriding: true # 통합 설정 시 유연성 확보
+
+# EAI 운영 관점 로깅 설정
+logging:
+  level:
+    root: INFO
+    com.inspien: DEBUG # 우리 로직은 상세히
+    org.springframework.integration: INFO
+  file:
+    name: logs/inspien-eai.log # 요구사항: 로컬 파일 저장
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - [TraceID: %X{correlationId}] %msg%n"

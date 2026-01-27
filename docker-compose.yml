@@ -1,0 +1,18 @@
+services:
+  # 과제용 DB
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: inspien_db
+
+  # 과제용 SFTP 서버
+  sftp:
+    image: atmoz/sftp
+    ports:
+      - "2222:22"
+    volumes:
+      - ./sftp_upload:/home/tester/upload
+    command: tester:password:1001

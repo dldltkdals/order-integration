@@ -1,0 +1,137 @@
+2026-01-27 23:50:42.054 [main] INFO  c.i.o.OrderIntegrationApplication - [TraceID: ] Starting OrderIntegrationApplication using Java 21.0.3 with PID 19949 (/Users/daum0604/order-integration/out/production/classes started by daum0604 in /Users/daum0604/order-integration)
+2026-01-27 23:50:42.055 [main] DEBUG c.i.o.OrderIntegrationApplication - [TraceID: ] Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-01-27 23:50:42.056 [main] INFO  c.i.o.OrderIntegrationApplication - [TraceID: ] The following 1 profile is active: "local"
+2026-01-27 23:50:42.333 [main] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor - [TraceID: ] No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2026-01-27 23:50:42.338 [main] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor - [TraceID: ] No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2026-01-27 23:50:42.546 [main] INFO  o.s.boot.tomcat.TomcatWebServer - [TraceID: ] Tomcat initialized with port 8080 (http)
+2026-01-27 23:50:42.553 [main] INFO  o.a.catalina.core.StandardService - [TraceID: ] Starting service [Tomcat]
+2026-01-27 23:50:42.553 [main] INFO  o.a.catalina.core.StandardEngine - [TraceID: ] Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-01-27 23:50:42.575 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - [TraceID: ] Root WebApplicationContext: initialization completed in 500 ms
+2026-01-27 23:50:42.744 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TraceID: ] HikariPool-1 - Starting...
+2026-01-27 23:50:43.880 [main] WARN  o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext - [TraceID: ] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'integrationDataSourceInitializer' defined in class path resource [org/springframework/boot/integration/autoconfigure/IntegrationAutoConfiguration$IntegrationJdbcConfiguration.class]: Failed to instantiate [org.springframework.boot.integration.autoconfigure.IntegrationDataSourceScriptDatabaseInitializer]: Factory method 'integrationDataSourceInitializer' threw exception with message: Failed to determine DatabaseDriver
+2026-01-27 23:50:43.886 [main] INFO  o.a.catalina.core.StandardService - [TraceID: ] Stopping service [Tomcat]
+2026-01-27 23:50:43.896 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - [TraceID: ] 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-01-27 23:50:43.905 [main] ERROR o.s.boot.SpringApplication - [TraceID: ] Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'integrationDataSourceInitializer' defined in class path resource [org/springframework/boot/integration/autoconfigure/IntegrationAutoConfiguration$IntegrationJdbcConfiguration.class]: Failed to instantiate [org.springframework.boot.integration.autoconfigure.IntegrationDataSourceScriptDatabaseInitializer]: Factory method 'integrationDataSourceInitializer' threw exception with message: Failed to determine DatabaseDriver
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1362)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1194)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:196)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1218)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1184)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1121)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:993)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:620)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at com.inspien.order_integration.OrderIntegrationApplication.main(OrderIntegrationApplication.java:10)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.integration.autoconfigure.IntegrationDataSourceScriptDatabaseInitializer]: Factory method 'integrationDataSourceInitializer' threw exception with message: Failed to determine DatabaseDriver
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:183)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:72)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:152)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	... 21 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to determine DatabaseDriver
+	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.getDatabaseDriver(PlatformPlaceholderDatabaseDriverResolver.java:144)
+	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.determinePlatform(PlatformPlaceholderDatabaseDriverResolver.java:132)
+	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.lambda$resolveAll$0(PlatformPlaceholderDatabaseDriverResolver.java:97)
+	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.resolveAll(PlatformPlaceholderDatabaseDriverResolver.java:122)
+	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.resolveAll(PlatformPlaceholderDatabaseDriverResolver.java:97)
+	at org.springframework.boot.jdbc.init.PropertiesBasedDataSourceScriptDatabaseInitializer.resolveSchemaLocations(PropertiesBasedDataSourceScriptDatabaseInitializer.java:90)
+	at org.springframework.boot.jdbc.init.PropertiesBasedDataSourceScriptDatabaseInitializer.getSettings(PropertiesBasedDataSourceScriptDatabaseInitializer.java:75)
+	at org.springframework.boot.jdbc.init.PropertiesBasedDataSourceScriptDatabaseInitializer.<init>(PropertiesBasedDataSourceScriptDatabaseInitializer.java:59)
+	at org.springframework.boot.integration.autoconfigure.IntegrationDataSourceScriptDatabaseInitializer.<init>(IntegrationDataSourceScriptDatabaseInitializer.java:46)
+	at org.springframework.boot.integration.autoconfigure.IntegrationAutoConfiguration$IntegrationJdbcConfiguration.integrationDataSourceInitializer(IntegrationAutoConfiguration.java:278)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:155)
+	... 24 common frames omitted
+Caused by: org.springframework.jdbc.support.MetaDataAccessException: Could not get Connection for extracting meta-data
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:355)
+	at org.springframework.boot.jdbc.init.PlatformPlaceholderDatabaseDriverResolver.getDatabaseDriver(PlatformPlaceholderDatabaseDriverResolver.java:140)
+	... 36 common frames omitted
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:84)
+	at org.springframework.jdbc.support.JdbcUtils.extractDatabaseMetaData(JdbcUtils.java:329)
+	... 37 common frames omitted
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:165)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:55)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:840)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:416)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:373)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:210)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81)
+	... 38 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:52)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:95)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:140)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:156)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:79)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:142)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:964)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828)
+	... 51 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:144)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:53)
+	... 54 common frames omitted
+2026-01-27 23:55:28.200 [main] INFO  c.i.o.OrderIntegrationApplication - [TraceID: ] Starting OrderIntegrationApplication using Java 21.0.3 with PID 20795 (/Users/daum0604/order-integration/out/production/classes started by daum0604 in /Users/daum0604/order-integration)
+2026-01-27 23:55:28.344 [main] DEBUG c.i.o.OrderIntegrationApplication - [TraceID: ] Running with Spring Boot v4.0.2, Spring v7.0.3
+2026-01-27 23:55:28.345 [main] INFO  c.i.o.OrderIntegrationApplication - [TraceID: ] The following 1 profile is active: "local"
+2026-01-27 23:55:28.879 [main] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor - [TraceID: ] No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2026-01-27 23:55:28.887 [main] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor - [TraceID: ] No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2026-01-27 23:55:29.157 [main] INFO  o.s.boot.tomcat.TomcatWebServer - [TraceID: ] Tomcat initialized with port 8080 (http)
+2026-01-27 23:55:29.165 [main] INFO  o.a.catalina.core.StandardService - [TraceID: ] Starting service [Tomcat]
+2026-01-27 23:55:29.165 [main] INFO  o.a.catalina.core.StandardEngine - [TraceID: ] Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-01-27 23:55:29.192 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - [TraceID: ] Root WebApplicationContext: initialization completed in 724 ms
+2026-01-27 23:55:29.421 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TraceID: ] HikariPool-1 - Starting...
+2026-01-27 23:55:29.761 [main] INFO  com.zaxxer.hikari.pool.HikariPool - [TraceID: ] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@482ba4b1
+2026-01-27 23:55:29.762 [main] INFO  com.zaxxer.hikari.HikariDataSource - [TraceID: ] HikariPool-1 - Start completed.
+2026-01-27 23:55:29.854 [main] INFO  o.s.i.endpoint.EventDrivenConsumer - [TraceID: ] Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2026-01-27 23:55:29.854 [main] INFO  o.s.i.c.PublishSubscribeChannel - [TraceID: ] Channel 'order-integration.errorChannel' has 1 subscriber(s).
+2026-01-27 23:55:29.855 [main] INFO  o.s.i.endpoint.EventDrivenConsumer - [TraceID: ] started bean '_org.springframework.integration.errorLogger'
+2026-01-27 23:55:29.866 [main] INFO  o.s.boot.tomcat.TomcatWebServer - [TraceID: ] Tomcat started on port 8080 (http) with context path '/'
+2026-01-27 23:55:29.869 [main] INFO  c.i.o.OrderIntegrationApplication - [TraceID: ] Started OrderIntegrationApplication in 1.999 seconds (process running for 2.355)
+2026-01-27 23:55:33.256 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - [TraceID: ] Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-27 23:55:33.261 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - [TraceID: ] Graceful shutdown complete
+2026-01-27 23:55:33.263 [SpringApplicationShutdownHook] INFO  o.s.i.endpoint.EventDrivenConsumer - [TraceID: ] Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2026-01-27 23:55:33.263 [SpringApplicationShutdownHook] INFO  o.s.i.c.PublishSubscribeChannel - [TraceID: ] Channel 'order-integration.errorChannel' has 0 subscriber(s).
+2026-01-27 23:55:33.264 [SpringApplicationShutdownHook] INFO  o.s.i.endpoint.EventDrivenConsumer - [TraceID: ] stopped bean '_org.springframework.integration.errorLogger'
+2026-01-27 23:55:33.264 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TraceID: ] HikariPool-1 - Shutdown initiated...
+2026-01-27 23:55:33.269 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - [TraceID: ] HikariPool-1 - Shutdown completed.
