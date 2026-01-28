@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: local # 기본값은 로컬로 설정
+    active: prod # 기본값은 로컬로 설정
   main:
     allow-bean-definition-overriding: true # 통합 설정 시 유연성 확보
 

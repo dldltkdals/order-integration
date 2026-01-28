@@ -4,8 +4,12 @@ spring:
     url: jdbc:mysql://localhost:3306/inspien_db?serverTimezone=UTC
     username: root
     password: root
+    order-table: ORDER_TB      # 주문 테이블 (Source 역할)
+    shipment-table: SHIPMENT_TB # 운송 테이블 (Target 역할)
 
-# 로컬 SFTP 모킹 환경 (Docker용)
+  database:
+    order-table: ORDER_TB
+    shipment-table: SHIPMENT_TB
 sftp:
   host: localhost
   port: 2222
