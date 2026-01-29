@@ -25,7 +25,8 @@ public class OrderService {
     private final SftpClient sftpClient;
     @Value("${app.applicant-key}")
     private String applicantKey;
-
+    @Value("${app.user-name}")
+    private String userName;
     @Transactional
     public void processOrder(OrderRequestXml xml) {
         // 1. 매핑 (XML -> Flat Entity List)
@@ -38,7 +39,9 @@ public class OrderService {
 
         // 3. SFTP 전송 내용 생성 (영수증 포맷팅)
         String fileContent = generateReceiptContent(entities);
-        String fileName = String.format("INSPIEN_지원자명_%s.txt",
+        // 파일명 생성 시 활용
+        String fileName = String.format("INSPIEN_%s_%s.txt",
+                userName,
                 LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")));
 
         // 4. SFTP 전송

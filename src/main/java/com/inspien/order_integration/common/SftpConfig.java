@@ -3,6 +3,7 @@ package com.inspien.order_integration.common;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.expression.common.LiteralExpression;
 import org.springframework.integration.sftp.session.DefaultSftpSessionFactory;
 import org.springframework.integration.sftp.session.SftpRemoteFileTemplate;
 
@@ -17,7 +18,8 @@ public class SftpConfig {
     private String user;
     @Value("${sftp.password}")
     private String password;
-
+    @Value("${sftp.path}") // 기본 경로 주입
+    private String defaultPath;
     @Bean
     public DefaultSftpSessionFactory sftpSessionFactory() {
         DefaultSftpSessionFactory factory = new DefaultSftpSessionFactory();
@@ -31,6 +33,10 @@ public class SftpConfig {
 
     @Bean
     public SftpRemoteFileTemplate sftpRemoteFileTemplate(DefaultSftpSessionFactory factory) {
-        return new SftpRemoteFileTemplate(factory);
+        SftpRemoteFileTemplate template = new SftpRemoteFileTemplate(factory);
+        template.setRemoteDirectoryExpression(new LiteralExpression(defaultPath));
+        template.setAutoCreateDirectory(true); // 폴더가 없으면 생성하는 옵션
+        template.setUseTemporaryFileName(false);
+        return template;
     }
 }
