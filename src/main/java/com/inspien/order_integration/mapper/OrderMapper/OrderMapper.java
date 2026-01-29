@@ -3,6 +3,7 @@ package com.inspien.order_integration.mapper.OrderMapper;
 import com.inspien.order_integration.model.dto.xml.OrderRequestXml;
 import com.inspien.order_integration.model.entity.OrderEntity;
 import com.inspien.order_integration.policy.IdGenerator;
+import com.inspien.order_integration.policy.OrderIdGenerator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -16,7 +17,7 @@ import java.util.stream.Collectors;
 @Component
 @RequiredArgsConstructor
 public class OrderMapper {
-    private final IdGenerator orderIdGenerator;
+    private final OrderIdGenerator orderIdGenerator;
     /**
      * XML 데이터를 DB 저장용 Flat Entity 리스트로 변환
      */
@@ -60,3 +61,4 @@ public class OrderMapper {
                 .collect(Collectors.toList());
     }
 }
+

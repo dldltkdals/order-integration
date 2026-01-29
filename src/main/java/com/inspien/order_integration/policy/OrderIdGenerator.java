@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-@Component
+@Component("orderIdGenerator")
 public class OrderIdGenerator implements IdGenerator {
 
     private final AtomicInteger sequence = new AtomicInteger(0);
